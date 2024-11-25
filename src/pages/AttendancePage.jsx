@@ -54,7 +54,7 @@ const MarkAttendancePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/users/mark-attendance', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/users/mark-attendance`, formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
