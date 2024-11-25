@@ -134,10 +134,13 @@ const ReportPage = () => {
 
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/users/details`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { 
+          Authorization: `Bearer ${localStorage.getItem('token')}` ,
+        },
         withCredentials: true,
       });
 
+      console.log('API Response:', response);
       if (response.status === 200 && response.data.data) {
         console.log('Parsed student data:', response.data.data);
         setStudentData(response.data.data);
