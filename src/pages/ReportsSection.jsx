@@ -17,7 +17,8 @@ const ReportPage = () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/users/details`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
         withCredentials: true,
       });
